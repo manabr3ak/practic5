@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="assets/js/script.js"></script> 
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>index</title>
+   <link rel="stylesheet" href="assets/css/layout.css">
+</head>
+<body>
+<header class="header"><strong>Новостной сайт NEWS</strong><img src="assets/img/logo.png" width="100" height="50" class="rightpic"></header>
+<div class="container">
+   <main class="center column">
+       <article>
+           <h1>Слайдер</h1>
+           <script>
+			window.onload = function() {
+			let slides = [
+            {
+               title: "Илон Маск потерял более 100 миллиардов долларов: как так получилось",
+               background: src="assets/img/img1.png",
+               link: "https://financy.24tv.ua/ru/ilon-mask-poterjal-bolee-100-milliardov-dollarov-skolko-deneg_n2203629"
+            }, {
+               title: "Нью-Йорк ввел двухлетний запрет на некоторые виды майнинга",
+               background: src="assets/img/img2.png",
+               link: "https://incrypted.com/nyu-jork-dvuhletnij-zapret-na-nekotorye-vidy-majninga/?utm_source=rss&utm_medium=rss&utm_campaign=nyu-jork-dvuhletnij-zapret-na-nekotorye-vidy-majninga"
+           } , {
+               title: "Honor представил новый смартфон-трансформер",
+               background: src="assets/img/img3.png",
+               link: "https://gazetavv.com/news/economy/honor-predstavil-novyi-smartfon-transformer.html"
+           }
+			]
+			Slider.initSlider(slides);
+			const buttonPrev = document.getElementById("prev");
+			const buttonNext = document.getElementById("next");
+			const buttonHide = document.getElementById("hide");
+			const buttonStart = document.getElementById("start");
+			buttonPrev.addEventListener("click", () => {Slider.prevSlide();});
+			buttonNext.addEventListener("click", () => {Slider.nextSlide();});
+			buttonHide.addEventListener("click", () => {if (document.getElementById("slider").style.visibility == "visible") 
+			{document.getElementById("slider").style.visibility = "hidden";
+			buttonHide.innerText = "Show";} 
+			else 
+			{document.getElementById("slider").style.visibility = "visible";
+			buttonHide.innerText = "Hide";}
+			})
+			buttonStart.addEventListener('click', ()=>{
+				if (buttonStart.innerText == "Start"){
+					interval = setInterval(()=>{
+					Slider.nextSlide();
+				}	,1000)
+				buttonStart.innerHTML = "Stop";
+			} else {
+					clearInterval(interval);
+					buttonStart.innerHTML = "Start";
+				}
+			});
+			}
+			</script>
+			<div id="slider"></div> 	
+			<button id="prev" class="forSlider">Prev</button>
+			<button id="next" class="forSlider">Next</button>
+			<button id="hide" class="forSlider">Hide</button>
+			<button id="start" class="forSlider">Start</button>
+       </article>
+   </main>
+   <nav class="left column">
+       <h3>Проводник по сайту</h3>
+       <ul>
+	       <li><a href="index.html">Домашняя страница</a></li>	
+           <li><a href="contact.html">Связаться с нами</a></li>
+		   <li><a href="about.html">О нас</a></li>
+		   <li><a href="table.html">Таблица</a></li>
+		   <li><a href="media.html">Медиа</a></li>
+       </ul>
+   </nav>
+   <div class="right column">
+       <h3>Right heading</h3>
+       <p></p>
+   </div>
+   <div class="push"></div>
+</div>
+<div class="footer-wrapper">
+   <footer class="footer"><img src="assets/img/logo.png" width="100" height="50" class="rightpic"></footer>
+</div>
+</body>
+</html>
